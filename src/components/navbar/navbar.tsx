@@ -38,7 +38,7 @@ const navItems = [
   },
 ];
 
-export default function navbar(props: Props) {
+export default function Navbar(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
 
