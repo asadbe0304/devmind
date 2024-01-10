@@ -1,5 +1,5 @@
 
-export const navItem  =[
+ const navItems  =[
   {
     route: '/',
     label: 'Home',
@@ -13,3 +13,5 @@ export const navItem  =[
     label: 'Blogs',
   },
 ]
+
+export default navItems

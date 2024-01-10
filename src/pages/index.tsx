@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Layout from "./../Layout/index"
+import { Hero } from "../components";
 const index = () => {
   return (
     <>
@@ -9,9 +10,7 @@ const index = () => {
             Blog App
           </title>
         </Head>
-        <div>
-          Index page
-        </div>
+        <Hero />
       </Layout>
     </>
   );
