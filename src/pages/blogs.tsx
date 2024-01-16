@@ -6,11 +6,11 @@ const about = () => {
     <>
       <Head>
         <title>
-          About Blog
+          Blog
         </title>
       </Head>
       <div>
-        About page
+        Blog page
       </div>
     </>
   );

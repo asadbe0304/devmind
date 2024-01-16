@@ -62,7 +62,7 @@ export default function Navbar(props: Props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex',}} height={"10vh"}>
+    <Box sx={{ display: 'flex', background:"#171718"}} height={"10vh"}>
       <AppBar component="nav"  sx={{background:'#171718',color:"#da0037",height:'10vh'}}>
         <Toolbar sx={{height:"10vh"}}>
           <IconButton
