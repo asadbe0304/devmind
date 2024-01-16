@@ -7,12 +7,17 @@ const hero = () => {
   return (
     <>
       <Box width={'100%'} height={'90vh'} sx={{}}>
-        <Carousel responsive={{
-          mobile: {
-            breakpoint: { max: 4000, min: 0 },
-            items: 1
-          }
-        }}>
+        <Carousel
+          infinite={true}
+          showDots={true}
+          ssr={true}
+          responsive={{
+            mobile: {
+              breakpoint: { max: 4000, min: 0 },
+              items: 1
+            }
+          }}
+        >
           {
             data.map(item => (
               <Box key={item.image} sx={{ position: "relative", width: "100%", height: "90vh" }}>
@@ -59,30 +64,30 @@ export default hero;
 
 const data = [
   {
-    image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+    image: 'https://media.graphassets.com/Z69qaoW1SGef88ReW8ol',
     title: 'Frontend Engineer',
     exerpt: 'Get started blog app',
     author: {
       name: 'Asadbek',
-      image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+      image: 'https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/J47Q48hSaGKc7Cfi09Bc',
     }
   },
   {
-    image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+    image: 'https://media.graphassets.com/M1fXWFlRC6xHmSHm3xFr',
     title: 'Technical Ceo',
     exerpt: 'Get started blog app',
     author: {
       name: 'Asadbek',
-      image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+      image: 'https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/J47Q48hSaGKc7Cfi09Bc',
     }
   },
   {
-    image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+    image: 'https://media.graphassets.com/FpCuYWbASqCiNgJIQMQV',
     title: 'Production Manager',
     exerpt: 'Get started blog app',
     author: {
       name: 'Asadbek',
-      image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+      image: 'https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/J47Q48hSaGKc7Cfi09Bc',
     }
   },
   {
@@ -91,7 +96,7 @@ const data = [
     exerpt: 'Get started blog app',
     author: {
       name: 'Asadbek',
-      image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+      image: 'https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/J47Q48hSaGKc7Cfi09Bc',
     }
   },
 ]
