@@ -38,7 +38,7 @@ export default function Navbar(props: Props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', background:'#444' , color:"#da0037"}}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', background: '#444', color: "#da0037" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         <Image
           src={Logo}
@@ -62,9 +62,9 @@ export default function Navbar(props: Props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', background:"#171718"}} height={"10vh"}>
-      <AppBar component="nav"  sx={{background:'#171718',color:"#da0037",height:'10vh'}}>
-        <Toolbar sx={{height:"10vh"}}>
+    <Box sx={{ display: 'flex', }} height={"10vh"}>
+      <AppBar component="nav" sx={{ background: '#171718', color: "#da0037", height: '10vh' }}>
+        <Toolbar sx={{ height: "10vh", background: "#171718" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -86,7 +86,7 @@ export default function Navbar(props: Props) {
               alt="Picture of the author"
             />
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' }, color:'#da0037' }}>
+          <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#da0037' }}>
             {navItems.map((item) => (
               <Button key={item.route} sx={{ color: '#da0037' }}>
                 {item.label}
@@ -106,7 +106,7 @@ export default function Navbar(props: Props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, height: "100vh", background: "#444" },
           }}
         >
           {drawer}
