@@ -1,3 +1,3 @@
 Next js with Typescript Blog App
 
-<a href="devminds.uz">Devminds</a>
+<a target="_blank" href="https://devminds.uz">Devminds</a>

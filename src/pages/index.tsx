@@ -12,7 +12,7 @@ const index = () => {
           </title>
         </Head>
         <Hero />
-        <Box sx={{display:'flex', gap:'20px', padding:'20px',}}>
+        <Box sx={{display:'flex', gap:'20px', padding:'20px',background:'black'}}>
           <Sidebar />
           <Content />
         </Box>

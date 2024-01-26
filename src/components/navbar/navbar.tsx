@@ -11,7 +11,7 @@ import {
   ListItemButton,
   ListItemText,
   Toolbar,
-  Typography,
+  Typography, Link
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import NavItems from './../../config/constants';
@@ -63,7 +63,7 @@ export default function Navbar(props: Props) {
 
   return (
     <Box sx={{ display: 'flex', }} height={"10vh"}>
-      <AppBar component="nav" sx={{ background: '#171718', color: "#da0037", height: '10vh' }}>
+      <AppBar component="nav" sx={{ background: '#171717', color: "#da0037", height: '10vh' }}>
         <Toolbar sx={{ height: "10vh", background: "#171718" }}>
           <IconButton
             color="inherit"
@@ -88,9 +88,11 @@ export default function Navbar(props: Props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#da0037' }}>
             {navItems.map((item) => (
-              <Button key={item.route} sx={{ color: '#da0037' }}>
-                {item.label}
-              </Button>
+              <Link key={item.route} href={item.route}>
+                <Button sx={{ color: '#da0037' }}>
+                  {item.label}
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>

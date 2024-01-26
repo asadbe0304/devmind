@@ -61,7 +61,7 @@ const hero = () => {
 };
 
 export default hero;
-
+ 
 const data = [
   {
     image: 'https://media.graphassets.com/Z69qaoW1SGef88ReW8ol',
