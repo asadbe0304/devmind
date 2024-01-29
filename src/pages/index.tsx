@@ -12,7 +12,7 @@ const index = () => {
           </title>
         </Head>
         <Hero />
-        <Box sx={{display:'flex', gap:'20px', padding:'20px',background:'black'}}>
+        <Box sx={{ display: 'flex', gap: '10px', padding: '10px', background: 'black', flexDirection: { xs: 'column', md: 'row' } }}>
           <Sidebar />
           <Content />
         </Box>

@@ -6,9 +6,9 @@ import Image from 'next/image';
 const sidebar = () => {
   return (
     <>
-      <Box sx={{ width: '30%', }} >
+      <Box sx={{ }} width={{ xs: '100%', md: '30%' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column-reverse', transition: "all 0.3s ease" }} style={{ position: 'sticky', top: '100px' }}>
-          <Box sx={{ padding: '20px', boxShadow: "unset", background: '#171717', borderRadius: '8px', color: '#ededed' }}>
+          <Box sx={{  padding:'10px', boxShadow: "unset", background: '#171717', borderRadius: '8px', color: '#ededed' }}>
             <Typography variant='h5'>Category</Typography>
             <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: 'flex-start', paddingTop: "10px" }}>
               {navItems.map((nav) => (
@@ -29,9 +29,9 @@ const sidebar = () => {
               {data.map((e) => {
                 return (
                   <Fragment key={e.title}>
-                    <Box sx={{ display: "flex", gap: '20px', }}>
+                    <Box sx={{ display: "flex", gap: '20px', width:'100%', justifyContent:'space-between' }}>
                       <Image src={e.image} alt={e.exerpt} width={'100'} height={'100'} style={{ objectFit: 'cover', borderRadius: '8px' }} />
-                      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                      <Box sx={{ display: 'flex', flexDirection: 'column', width:'100%' }}>
                         <Typography variant='body1' color={"#ededed"}>
                           {e.title}
                         </Typography>

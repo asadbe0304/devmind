@@ -32,11 +32,11 @@ const hero = () => {
                   height: '100%',
                   background: 'rgb(0,0,0, 0.5)',
                 }}>
-                  <Box width={{ xs: '100%', xl: '70%' }} position={'relative'} sx={{ top: '50%', transform: 'translateY(-50%)', paddingLeft: '50px' }} color={'#ededed'} zIndex={999}>
-                    <Typography variant='h2'>
+                  <Box width={{ xs: '100%', xl: '70%' }} position={'relative'} sx={{ top: '50%', transform: 'translateY(-50%)', paddingLeft: {xs:'10px',md:'50px'} }} color={'#ededed'} zIndex={999}>
+                    <Typography sx={{fontSize:{xs:'30px', md:'50px'}}}>
                       {item.title}
                     </Typography>
-                    <Typography variant='h5'>
+                    <Typography sx={{fontSize:{xs:'25px', md:'30px'}}}>
                       {item.exerpt}
                     </Typography>
                     <Box sx={{ display: 'flex', marginTop: '20px', gap: '10px' }}>
@@ -64,7 +64,7 @@ export default hero;
  
 const data = [
   {
-    image: 'https://media.graphassets.com/Z69qaoW1SGef88ReW8ol',
+    image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
     title: 'Frontend Engineer',
     exerpt: 'Get started blog app',
     author: {
