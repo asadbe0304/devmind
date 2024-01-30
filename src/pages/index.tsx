@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import { useEffect } from "react";
 import { BlogService } from "../services/blog.service";
 import { BlogType } from "../interfaces/blog.interfaces";
-const index = ({blogs}: HomePageProps) => {
+const index = ({ blogs }: HomePageProps) => {
   // useEffect(()=>{
   //   BlogService.getAllBlogs().then(data => console.log(data))
   // },[])
@@ -15,6 +15,7 @@ const index = ({blogs}: HomePageProps) => {
     <>
       <Layout>
         <Head>
+          <meta name="description" content="Blog app" />
           <title>
             Blog App
           </title>
