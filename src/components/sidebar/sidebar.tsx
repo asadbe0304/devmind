@@ -95,7 +95,7 @@ const data = [
     }
   },
   {
-    image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+    image: 'https://media.graphassets.com/M1fXWFlRC6xHmSHm3xFr',
     title: 'Full stack Developer',
     exerpt: 'Get started blog app',
     author: {

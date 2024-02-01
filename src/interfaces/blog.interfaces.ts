@@ -8,7 +8,6 @@ export interface BlogType {
   slug: string;
   createdBy: {
     name: string;
-    picture: string;
     id: string;
   };
 }

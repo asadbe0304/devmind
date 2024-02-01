@@ -9,7 +9,8 @@ const index = ({ blogs }: HomePageProps) => {
   // useEffect(()=>{
   //   BlogService.getAllBlogs().then(data => console.log(data))
   // },[])
-  console.log(blogs);
+
+
 
   return (
     <>
@@ -23,7 +24,7 @@ const index = ({ blogs }: HomePageProps) => {
         <Hero />
         <Box sx={{ display: 'flex', gap: '10px', padding: '10px', background: 'black', flexDirection: { xs: 'column', md: 'row' } }}>
           <Sidebar />
-          <Content />
+          <Content blogs={blogs}/>
         </Box>
       </Layout>
     </>

@@ -8,18 +8,16 @@ export const BlogService = {
     const query = gql`
       query GetBlogs {
         blogs {
+          title
           id
-          createdAt
+          excerpt
           desciption {
             text
           }
-          slug
           createdBy {
-            name
-            picture
             id
+            name
           }
-          excerpt
         }
       }
     `;

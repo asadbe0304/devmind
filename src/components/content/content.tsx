@@ -1,8 +1,12 @@
 import { Avatar, Box, Divider, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
+import { ContentProps } from './props.content';
 
-const content = () => {
+const content = ({ blogs }: ContentProps) => {
+
+  console.log(blogs);
+
   return (
     <>
       <Box width={{ xs: '100%', md: '70%' }} sx={{ background: "#171717", borderRadius: '8px' }}>
@@ -68,7 +72,7 @@ const data = [
     }
   },
   {
-    image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+    image: 'https://media.graphassets.com/M1fXWFlRC6xHmSHm3xFr',
     title: 'Full stack Developer',
     exerpt: 'Get started blog app',
     author: {
