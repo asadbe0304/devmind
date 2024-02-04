@@ -9,25 +9,25 @@ const content = ({ blogs }: ContentProps) => {
 
   return (
     <>
-      <Box width={{ xs: '100%', md: '70%' }} sx={{ background: "#171717", borderRadius: '8px' }}>
+      <Box width={{ xs: '100%', md: '70%' }} sx={{ background: "#171718", borderRadius: '8px' }}>
         {
-          data.map((e) => {
+          blogs.map((e) => {
             return (
               <Box key={e.title} sx={{ padding: '10px', margin: '10px', borderRadius: '4px', boxShadow: '0 8px 16px rgba(255,255,255,0.1)' }}>
                 <Box position={'relative'} width={'100%'} height={{ xs: '30vh', md: '50vh' }}>
-                  <Image src={e.image} alt={e.exerpt} fill style={{ objectFit: 'cover', borderRadius: '10px', }} />
+                  <Image src={e.image.url} priority={true} alt={e.excerpt} fill style={{ objectFit: 'cover', borderRadius: '10px', }} />
                 </Box>
                 <Typography variant='h4' marginTop={'30px'} color={'#ededed'}>{e.title}</Typography>
-                <Typography variant='body1' color={"#ededed"}> {e.exerpt}</Typography>
+                <Typography variant='body1' color={"#ededed"}> {e.excerpt}</Typography>
                 <Divider sx={{ background: "#ededed", marginTop: '30px' }} />
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '20px' }}>
-                  <Avatar src={e.author.image} alt={e.exerpt} />
+                  <Avatar src={e.profile.url} alt={e.excerpt} />
                   <Box>
                     <Typography variant='subtitle1' color={'#ededed'}>
-                      {e.author.name}
+                      {e.asadbek}
                     </Typography>
                     <Box color={'#ededed'}>
-                      12.01.2024 1min read
+                      {e.createdAt.slice(0, 10)}
                     </Box>
                   </Box>
                 </Box>

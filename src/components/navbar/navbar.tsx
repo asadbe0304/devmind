@@ -3,7 +3,6 @@ import {
   AppBar,
   Box,
   Button,
-  Divider,
   Drawer,
   IconButton,
   List,
@@ -44,6 +43,7 @@ export default function Navbar(props: Props) {
           src={Logo}
           width={40}
           height={40}
+          priority={true}
           alt="Picture of the author"
         />
       </Typography>
@@ -89,7 +89,7 @@ export default function Navbar(props: Props) {
           <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#da0037' }}>
             {navItems.map((item) => (
               <Link key={item.route} href={item.route}>
-                <Button sx={{ color: '#da0037' }}>
+                <Button role='link' aria-label="Button other" sx={{ color: '#da0037' }}>
                   {item.label}
                 </Button>
               </Link>
@@ -108,7 +108,7 @@ export default function Navbar(props: Props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, height: "100vh", background: "#444" },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, height: "100vh", background: "#171718" },
           }}
         >
           {drawer}

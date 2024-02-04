@@ -2,8 +2,9 @@ import 'react-multi-carousel/lib/styles.css';
 import { Avatar, Box, Typography } from "@mui/material";
 import Carousel from 'react-multi-carousel';
 import Image from 'next/image';
+import { HeroProps } from './props.hero';
 
-const hero = () => {
+const hero = ({ blogs }: HeroProps) => {
   return (
     <>
       <Box width={'100%'} height={'90vh'} sx={{}}>
@@ -19,9 +20,9 @@ const hero = () => {
           }}
         >
           {
-            data.map(item => (
-              <Box key={item.image} sx={{ position: "relative", width: "100%", height: "90vh" }}>
-                <Image src={item.image} alt={item.title} fill style={{ objectFit: 'cover', zIndex: 99 }} />
+            blogs.map(item => (
+              <Box key={item.id} sx={{ position: "relative", width: "100%", height: "90vh" }}>
+                <Image src={item.image.url} priority={true} alt={item.title} fill style={{ objectFit: 'cover', zIndex: 99 }} />
                 <Box sx={{
                   position: 'absolute',
                   top: 0,
@@ -32,19 +33,19 @@ const hero = () => {
                   height: '100%',
                   background: 'rgb(0,0,0, 0.5)',
                 }}>
-                  <Box width={{ xs: '100%', xl: '70%' }} position={'relative'} sx={{ top: '50%', transform: 'translateY(-50%)', paddingLeft: {xs:'10px',md:'50px'} }} color={'#ededed'} zIndex={999}>
-                    <Typography sx={{fontSize:{xs:'30px', md:'50px'}}}>
+                  <Box width={{ xs: '100%', xl: '70%' }} position={'relative'} sx={{ top: '50%', transform: 'translateY(-50%)', paddingLeft: { xs: '10px', md: '50px' } }} color={'#ededed'} zIndex={999}>
+                    <Typography variant='h5' sx={{ fontSize: { xs: '30px', md: '50px', color: '#da0037' } }}>
                       {item.title}
                     </Typography>
-                    <Typography sx={{fontSize:{xs:'25px', md:'30px'}}}>
-                      {item.exerpt}
+                    <Typography variant='h5' sx={{ fontSize: { xs: '25px', md: '30px', color: '#da0037' } }}>
+                      {item.excerpt}
                     </Typography>
                     <Box sx={{ display: 'flex', marginTop: '20px', gap: '10px' }}>
-                      <Avatar alt='Asadbek' src={item.author.image} />
+                      <Avatar alt='Asadbek' src={item.profile.url} />
                       <Box>
-                        <Typography>{item.author.name}</Typography>
+                        <Typography variant='h5'>{item.asadbek}</Typography>
                         <Box>
-                          12.05.2023 ,  10 min read
+                          {item.createdAt.slice(0, 10)} ,  10 min read
                         </Box>
                       </Box>
                     </Box>
@@ -61,7 +62,7 @@ const hero = () => {
 };
 
 export default hero;
- 
+
 const data = [
   {
     image: 'https://media.graphassets.com/M1fXWFlRC6xHmSHm3xFr',

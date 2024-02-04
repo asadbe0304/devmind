@@ -2,15 +2,10 @@ import Head from "next/head";
 import Layout from "./../Layout/index"
 import { Hero, Sidebar, Content } from "../components";
 import { Box } from "@mui/material";
-import { useEffect } from "react";
 import { BlogService } from "../services/blog.service";
 import { BlogType } from "../interfaces/blog.interfaces";
-const index = ({ blogs }: HomePageProps) => {
-  // useEffect(()=>{
-  //   BlogService.getAllBlogs().then(data => console.log(data))
-  // },[])
-
-
+import { GetServerSideProps } from "next";
+const index = ({ blogs, categories }: HomePageProps) => {
 
   return (
     <>
@@ -21,10 +16,10 @@ const index = ({ blogs }: HomePageProps) => {
             Blog App
           </title>
         </Head>
-        <Hero />
+        <Hero blogs={blogs.slice(0, 3)} />
         <Box sx={{ display: 'flex', gap: '10px', padding: '10px', background: 'black', flexDirection: { xs: 'column', md: 'row' } }}>
-          <Sidebar />
-          <Content blogs={blogs}/>
+          <Sidebar blogs={blogs.slice(0, 2)} categories={categories} />
+          <Content blogs={blogs} />
         </Box>
       </Layout>
     </>
@@ -33,16 +28,19 @@ const index = ({ blogs }: HomePageProps) => {
 
 export default index;
 
-export const getServerSideProps = async () => {
-  const blogs = await BlogService.getAllBlogs()
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async () => {
+  const blogs = await BlogService.getAllBlogs();
+  const categories = await BlogService.getCategories();
 
   return {
     props: {
-      blogs
+      blogs,
+      categories,
     }
   }
 }
 
 interface HomePageProps {
   blogs: BlogType[];
+  categories: BlogType[];
 }

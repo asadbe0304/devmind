@@ -1,13 +1,22 @@
 export interface BlogType {
-  excerpt: string;
+  categories: {
+    category: string;
+    id: string;
+    slug: string;
+  };
   id: string;
-  createdAt: string;
-  desciption: {
+  title: string;
+  slug: string;
+  excerpt: string;
+  image: {
+    url: string;
+  };
+  description: {
     text: string;
   };
-  slug: string;
-  createdBy: {
-    name: string;
-    id: string;
+  createdAt: string;
+  asadbek: string;
+  profile: {
+    url: string;
   };
 }

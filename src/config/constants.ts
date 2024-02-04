@@ -1,17 +1,16 @@
+const navItems = [
+  {
+    route: "/",
+    label: "Home",
+  },
+  {
+    route: "/blogs",
+    label: "Blogs",
+  },
+  {
+    route: "/author",
+    label: "Author",
+  },
+];
 
- const navItems  =[
-  {
-    route: '/',
-    label: 'Home',
-  },
-  {
-    route: '/category',
-    label: 'Category',
-  },
-  {
-    route: '/blogs',
-    label: 'Blogs',
-  },
-]
-
-export default navItems
+export default navItems;

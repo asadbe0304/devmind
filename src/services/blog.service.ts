@@ -8,20 +8,39 @@ export const BlogService = {
     const query = gql`
       query GetBlogs {
         blogs {
-          title
           id
+          title
+          slug
           excerpt
+          image {
+            url
+          }
           desciption {
             text
           }
-          createdBy {
-            id
-            name
+          createdAt
+          asadbek
+          profile {
+            url
           }
         }
       }
     `;
-    const result = await request<{ blogs: BlogType }>(graphqlApi, query);
+    const result = await request<{ blogs: BlogType[] }>(graphqlApi, query);
     return result.blogs;
+  },
+
+  async getCategories() {
+    const query = gql`
+      query GetCategories {
+        categories {
+          category
+          id
+          slug
+        }
+      }
+    `;
+    const result = await request<{ categories: BlogType[] }>(graphqlApi, query);
+    return result.categories;
   },
 };
