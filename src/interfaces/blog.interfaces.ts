@@ -11,9 +11,11 @@ export interface BlogType {
   image: {
     url: string;
   };
-  description: {
+  desciption: {
+    html: string;
     text: string;
   };
+  
   createdAt: string;
   asadbek: string;
   profile: {

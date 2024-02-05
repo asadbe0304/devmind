@@ -3,8 +3,10 @@ import { Avatar, Box, Typography } from "@mui/material";
 import Carousel from 'react-multi-carousel';
 import Image from 'next/image';
 import { HeroProps } from './props.hero';
+import { calculatedEstimatedTime } from '../../helpers/time.format';
 
 const hero = ({ blogs }: HeroProps) => {
+
   return (
     <>
       <Box width={'100%'} height={'90vh'} sx={{}}>
@@ -34,10 +36,10 @@ const hero = ({ blogs }: HeroProps) => {
                   background: 'rgb(0,0,0, 0.5)',
                 }}>
                   <Box width={{ xs: '100%', xl: '70%' }} position={'relative'} sx={{ top: '50%', transform: 'translateY(-50%)', paddingLeft: { xs: '10px', md: '50px' } }} color={'#ededed'} zIndex={999}>
-                    <Typography variant='h5' sx={{ fontSize: { xs: '30px', md: '50px', color: '#da0037' } }}>
+                    <Typography variant='h5' sx={{ fontSize: { xs: '30px', md: '50px', color: '#fff' } }}>
                       {item.title}
                     </Typography>
-                    <Typography variant='h5' sx={{ fontSize: { xs: '25px', md: '30px', color: '#da0037' } }}>
+                    <Typography variant='h5' sx={{ fontSize: { xs: '25px', md: '30px', color: '#999' } }}>
                       {item.excerpt}
                     </Typography>
                     <Box sx={{ display: 'flex', marginTop: '20px', gap: '10px' }}>
@@ -45,7 +47,7 @@ const hero = ({ blogs }: HeroProps) => {
                       <Box>
                         <Typography variant='h5'>{item.asadbek}</Typography>
                         <Box>
-                          {item.createdAt.slice(0, 10)} ,  10 min read
+                          {item.createdAt.slice(0, 10)} ,  {calculatedEstimatedTime(item.desciption.text)} min read
                         </Box>
                       </Box>
                     </Box>

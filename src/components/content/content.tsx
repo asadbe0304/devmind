@@ -1,34 +1,65 @@
-import { Avatar, Box, Divider, Typography } from '@mui/material';
+import { Avatar, Box, Divider, Typography, Link, Tooltip } from '@mui/material';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import { ContentProps } from './props.content';
+import { calculatedEstimatedTime } from '../../helpers/time.format';
+import { useRouter } from 'next/router';
+import ShareIcon from '@mui/icons-material/Share';
+import TelegramIcon from '@mui/icons-material/Telegram';
 
 const content = ({ blogs }: ContentProps) => {
+  const router = useRouter()
+  const [copied, setCopied] = useState(false);
 
-  console.log(blogs);
+  const copyToClipboard = async () => {
+    try {
+      const urlToCopy = window.location.href;
+      await navigator.clipboard.writeText(urlToCopy);
+      setCopied(true);
+    } catch (err) {
+      console.error('Error copying to clipboard:', err);
+    }
+  };
 
   return (
     <>
-      <Box width={{ xs: '100%', md: '70%' }} sx={{ background: "#171718", borderRadius: '8px' }}>
+      <Box width={{ xs: '100%', md: '70%' }} sx={{ background: "#171718", borderRadius: '8px' }}
+
+      >
         {
           blogs.map((e) => {
             return (
-              <Box key={e.title} sx={{ padding: '10px', margin: '10px', borderRadius: '4px', boxShadow: '0 8px 16px rgba(255,255,255,0.1)' }}>
-                <Box position={'relative'} width={'100%'} height={{ xs: '30vh', md: '50vh' }}>
-                  <Image src={e.image.url} priority={true} alt={e.excerpt} fill style={{ objectFit: 'cover', borderRadius: '10px', }} />
+              <Box key={e.title} sx={{ padding: '10px', margin: '10px', borderRadius: '4px', boxShadow: '0 8px 16px rgba(255,255,255,0.1)', }}
+              >
+                <Box sx={{ cursor: 'pointer' }} onClick={() => router.push(`/blog/${e.slug}`)}>
+                  <Box position={'relative'} width={'100%'} height={{ xs: '30vh', md: '50vh' }}>
+                    <Image src={e.image.url} priority={true} alt={e.excerpt} fill style={{ objectFit: 'cover', borderRadius: '10px', }} />
+                  </Box>
+                  <Typography variant='h4' marginTop={'30px'} color={'#ededed'}>{e.title}</Typography>
+                  <Typography variant='body1' color={"#ededed"}> {e.excerpt}</Typography>
                 </Box>
-                <Typography variant='h4' marginTop={'30px'} color={'#ededed'}>{e.title}</Typography>
-                <Typography variant='body1' color={"#ededed"}> {e.excerpt}</Typography>
                 <Divider sx={{ background: "#ededed", marginTop: '30px' }} />
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '20px' }}>
-                  <Avatar src={e.profile.url} alt={e.excerpt} />
-                  <Box>
-                    <Typography variant='subtitle1' color={'#ededed'}>
-                      {e.asadbek}
-                    </Typography>
-                    <Box color={'#ededed'}>
-                      {e.createdAt.slice(0, 10)}
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', marginTop: '20px' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <Avatar src={e.profile.url} alt={e.excerpt} />
+                    <Box>
+                      <Typography variant='subtitle1' color={'#ededed'}>
+                        {e.asadbek}
+                      </Typography>
+                      <Box color={'#ededed'}>
+                        {e.createdAt.slice(0, 10)} {calculatedEstimatedTime(e.desciption.text)} min read
+                      </Box>
                     </Box>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <Link href={'https://t.me/Aa_Asadbek'} sx={{ padding: '0', margin: '0', width: '24px', height: '24px' }}>
+                      <Tooltip title={'Open Telegram'}>
+                        <TelegramIcon sx={{ color: '#fff', cursor: 'pointer', width: '24px', height: '24px' }} />
+                      </Tooltip>
+                    </Link>
+                    <Tooltip title={` ${copied ? 'Copied!' : 'Copy URL'}`}>
+                      <ShareIcon onClick={copyToClipboard} sx={{ color: '#fff', cursor: 'pointer', width: '24px', height: '24px' }} />
+                    </Tooltip>
                   </Box>
                 </Box>
               </Box>

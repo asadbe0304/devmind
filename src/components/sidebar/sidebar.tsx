@@ -35,11 +35,11 @@ const sidebar = ({ blogs, categories }: SidebarProps) => {
                     <Box sx={{ display: "flex", gap: '20px', width: '100%', justifyContent: 'space-between' }}>
                       <Image src={e.image.url} priority={true} alt={e.excerpt} width={'100'} height={'100'} style={{ objectFit: 'cover', borderRadius: '8px' }} />
                       <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                        <Typography variant='body1' color={"#ededed"}>
+                        <Typography variant='h5' color={"#ededed"}>
                           {e.title}
                         </Typography>
-                        <Typography variant='body2' color={'#ededed'}>
-                          {e.excerpt}
+                        <Typography variant='body2'  color={'#ededed'}>
+                          {e.excerpt.slice(0, 20)}...
                         </Typography>
                         <Box sx={{ display: 'flex', marginTop: '10px', gap: '10px', color: "#ededed" }}>
                           <Avatar alt='Asadbek' src={e.profile.url} />

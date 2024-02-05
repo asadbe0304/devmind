@@ -16,6 +16,7 @@ export const BlogService = {
             url
           }
           desciption {
+            html
             text
           }
           createdAt
@@ -42,5 +43,34 @@ export const BlogService = {
     `;
     const result = await request<{ categories: BlogType[] }>(graphqlApi, query);
     return result.categories;
+  },
+  async getDetailedBlogs(slug: string) {
+    const query = gql`
+      query GetDetailedBlog($slug: String!) {
+        blog(where: { slug: $slug }) {
+          id
+          title
+          slug
+          excerpt
+          image {
+            url
+          }
+          desciption {
+            html
+            text
+          }
+          createdAt
+          asadbek
+          profile {
+            url
+          }
+        }
+      }
+    `;
+
+    const result = await request<{ blog: BlogType }>(graphqlApi, query, {
+      slug,
+    });
+    return result.blog;
   },
 };
