@@ -32,8 +32,8 @@ export default function StickyFooter() {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
           <Image
             src={Logo}
-            width={40}
-            height={40}
+            width={48}
+            height={56}
             alt="Picture of the logo"
           />
           <Box color={'#da0037'}>

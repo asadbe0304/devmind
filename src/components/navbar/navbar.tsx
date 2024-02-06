@@ -81,8 +81,8 @@ export default function Navbar(props: Props) {
           >
             <Image
               src={Logo}
-              width={40}
-              height={40}
+              width={48}
+              height={56}
               alt="Picture of the author"
             />
           </Typography>
