@@ -1,10 +1,12 @@
 body {
   background: #171717 !important;
 }
+
 .icon {
   width: 35px;
   height: 35px;
 }
+
 #nprogress .bar {
   z-index: 1110 !important;
 }
