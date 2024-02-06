@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import { MdFacebook, MdWhatsapp } from "react-icons/md";
+import { MdFacebook, MdWhatsapp, MdMessage } from "react-icons/md";
 import Link from '@mui/material/Link';
 import Logo from "./../../assets/s.png";
 import Image from 'next/image';
@@ -32,8 +32,8 @@ export default function StickyFooter() {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
           <Image
             src={Logo}
-            width={48}
-            height={56}
+            width={40}
+            height={45}
             alt="Picture of the logo"
           />
           <Box color={'#da0037'}>
@@ -47,6 +47,9 @@ export default function StickyFooter() {
             </Link>
             <Link href="https://devminds.uz" color={'#da0037'} aria-label={"social link"} underline="none">
               <MdWhatsapp className='icon' />
+            </Link>
+            <Link href="https://devminds.uz" color={'#da0037'} aria-label={"social link"} underline="none">
+              <MdMessage className='icon' />
             </Link>
           </Box>
           <Copyright />

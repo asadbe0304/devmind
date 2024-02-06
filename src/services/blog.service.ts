@@ -35,7 +35,6 @@ export const BlogService = {
     const query = gql`
       query GetCategories {
         categories {
-          category
           id
           slug
         }
@@ -72,5 +71,39 @@ export const BlogService = {
       slug,
     });
     return result.blog;
+  },
+
+  async getDetaieldCateogriesBlog(slug: string) {
+    const query = gql`
+      query getCategoriesBlog($slug: String!) {
+        blogs(where: { category: { slug: $slug } }) {
+          excerpt
+          id
+          slug
+          title
+          createdAt
+          image {
+            url
+          }
+          createdAt
+          asadbek
+          profile {
+            url
+          }
+          category {
+            label
+            slug
+          }
+          desciption {
+            text
+          }
+        }
+      }
+    `;
+
+    const result = await request<{ blogs: BlogType[] }>(graphqlApi, query, {
+      slug,
+    });
+    return result.blogs;
   },
 };

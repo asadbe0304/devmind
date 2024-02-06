@@ -75,23 +75,21 @@ export default function Navbar(props: Props) {
             <MenuIcon />
           </IconButton>
           <Typography
-            variant="h6"
+            variant="h2"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
             <Image
               src={Logo}
-              width={48}
-              height={56}
+              width={40}
+              height={45}
               alt="Picture of the author"
             />
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#da0037' }}>
             {navItems.map((item) => (
-              <Link key={item.route} href={item.route}>
-                <Button role='link' aria-label="Button other" sx={{ color: '#da0037' }}>
-                  {item.label}
-                </Button>
+              <Link key={item.route} underline='none' sx={{ marginLeft: '5px', marginRight: '5px', color: '#da0037' }} href={item.route}>
+                {item.label}
               </Link>
             ))}
           </Box>

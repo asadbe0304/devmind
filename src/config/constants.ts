@@ -4,7 +4,7 @@ const navItems = [
     label: "Home",
   },
   {
-    route: "/blogs",
+    route: "/blog",
     label: "Blogs",
   },
   {
