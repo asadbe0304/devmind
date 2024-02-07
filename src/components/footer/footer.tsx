@@ -25,7 +25,8 @@ export default function StickyFooter() {
         py: 3,
         px: 2,
         mt: 'auto',
-        backgroundColor: "#171718"
+        backgroundColor: "#2A2B33",
+        border: '1px solid #7000FF'
       }}
     >
       <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', sm: { flexDirection: 'column' } }}>

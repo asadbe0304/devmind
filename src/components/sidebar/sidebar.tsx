@@ -8,11 +8,12 @@ const sidebar = ({ blogs, categories }: SidebarProps) => {
     <>
       <Box sx={{}} width={{ xs: '100%', md: '30%' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column-reverse', transition: "all 0.3s ease" }} style={{ position: 'sticky', top: '100px' }}>
-          <Box sx={{ padding: '10px', boxShadow: "unset", background: '#171717', borderRadius: '8px', color: '#ededed' }}>
+          <Box sx={{ padding: '10px', background: '#2A2B33', borderRadius: '8px', color: '#ededed', border: '1px solid #7000FF', boxShadow: '0 2px 4px #6622FF' }}>
             <Typography variant='h5'>Category</Typography>
             <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: 'flex-start', paddingTop: "10px" }}>
               {categories.map((nav) => (
-                <Link key={nav.id} href={nav.id} sx={{ borderBottom: "1px solid #ededed", marginBottom: '10px' }}>
+                <Link key={nav.id} href={nav.id} sx={{ marginBottom: '0px' }}>
+                  <Divider sx={{ marginTop: "0px", marginBottom: "0px", background: "#7000ff" }} />
                   <Button role='link' aria-label="blogs category" fullWidth sx={{ color: "#da0037", flexDirection: "column", justifyContent: 'flex-start', alignItems: "flex-start" }}>
                     {nav.slug}
                   </Button>
@@ -22,7 +23,7 @@ const sidebar = ({ blogs, categories }: SidebarProps) => {
             </Box>
           </Box>
           {/* latest blog box */}
-          <Box sx={{ width: "100%", borderRadius: '8px', marginBottom: '20px', padding: "20px", background: '#171717' }}>
+          <Box sx={{ width: "100%", borderRadius: '8px', marginBottom: '20px', padding: "20px", background: '#2A2B33', border: '1px solid #7000FF', boxShadow: '0 2px 4px #6622FF' }}>
             <Typography variant='h5' color={"#ededed"}>
               Latest blog
             </Typography>
@@ -54,7 +55,7 @@ const sidebar = ({ blogs, categories }: SidebarProps) => {
                         </Box>
                       </Box>
                     </Link>
-                    <Divider sx={{ marginTop: "10px", marginBottom: "10px", background: "#ededed" }} />
+                    <Divider sx={{ marginTop: "10px", marginBottom: "10px", background: "#7000ff" }} />
                   </Fragment>
                 )
               })}

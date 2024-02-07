@@ -37,7 +37,7 @@ export default function Navbar(props: Props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', background: '#444', color: "#da0037" }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', background: "#2A2B33", color: "#da0037" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         <Image
           src={Logo}
@@ -63,8 +63,8 @@ export default function Navbar(props: Props) {
 
   return (
     <Box sx={{ display: 'flex', }} height={"10vh"}>
-      <AppBar component="nav" sx={{ background: '#171717', color: "#da0037", height: '10vh' }}>
-        <Toolbar sx={{ height: "10vh", background: "#171718" }}>
+      <AppBar component="nav" sx={{ background: '#2A2B33', color: "#da0037", height: '10vh', borderBottom: '1px solid #7000FF', boxShadow: '0 1px 2px #6622FF' }}>
+        <Toolbar sx={{ height: "10vh", background: "#2A2B33" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
