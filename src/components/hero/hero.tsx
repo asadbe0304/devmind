@@ -1,5 +1,5 @@
 import 'react-multi-carousel/lib/styles.css';
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Typography, Button } from "@mui/material";
 import Carousel from 'react-multi-carousel';
 import Image from 'next/image';
 import { HeroProps } from './props.hero';
@@ -44,13 +44,16 @@ const hero = ({ blogs }: HeroProps) => {
                       <Typography variant='h5' sx={{ fontSize: { xs: '25px', md: '30px', color: '#999' } }}>
                         {item.excerpt}
                       </Typography>
-                      <Box sx={{ display: 'flex', marginTop: '20px', gap: '10px' }}>
+                      <Box sx={{ display: 'flex', alignItems:'flex-start', marginTop: '20px', gap: '10px' }}>
                         <Avatar alt='Asadbek' src={item.profile.url} />
                         <Box>
                           <Typography variant='h5'>{item.asadbek}</Typography>
                           <Box>
                             {item.createdAt.slice(0, 10)} ,  {calculatedEstimatedTime(item.desciption.text)} min read
                           </Box>
+                          <Button variant={"contained"} sx={{ width: '100%', marginTop:'10px' }} aria-label='read more button'>
+                            Read more
+                          </Button>
                         </Box>
                       </Box>
                     </Box>

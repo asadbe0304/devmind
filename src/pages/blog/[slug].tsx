@@ -10,7 +10,7 @@ import { Avatar, Box, Divider, Typography } from '@mui/material';
 import { calculatedEstimatedTime } from 'src/helpers/time.format';
 
 const DetailedBlog = ({ blogs }: DetailedBlogsPageProps) => {
-  console.log(blogs);
+  // console.log(blogs);
 
   return (
     <Layout>
@@ -30,12 +30,12 @@ const DetailedBlog = ({ blogs }: DetailedBlogsPageProps) => {
           >
             <Image src={blogs.image.url} alt={blogs.title} fill style={{ objectFit: 'cover', borderRadius: '10px' }} />
           </Box>
-          <Box display={'flex'} flexDirection={'column'} rowGap={'10px'} sx={{ background: '#171717', padding: '10px', borderRadius: '8px', boxShadow: '0px 8px 16px rgba(255, 255, 255, .1)', }}>
+          <Box display={'flex'} flexDirection={'column'} rowGap={'10px'} sx={{ border: '1px solid #7000FF', background: '#2A2B33', padding: '10px', borderRadius: '8px', boxShadow: '0px 8px 16px rgba(255, 255, 255, .1)', }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '20px' }}>
               <Avatar alt={blogs.asadbek} src={blogs.profile.url} />
               <Box>
                 <Typography variant='subtitle1' color={'#fff'}>{blogs.asadbek}</Typography>
-                <Box color={'#fff'}>
+                <Box color={'#da0037'}>
                   {(blogs.createdAt.slice(0, 10))} &#x2022;
                   {calculatedEstimatedTime(blogs.desciption.text)}
                   min read
@@ -45,7 +45,7 @@ const DetailedBlog = ({ blogs }: DetailedBlogsPageProps) => {
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <Typography variant='h5' sx={{ xs: { fontSize: '2rem' }, md: { fontSize: '3rem' } }} color={'#fff'}>{blogs.title}</Typography>
               <Typography color={'#fff'} variant='subtitle2'>{blogs.excerpt}</Typography>
-              <Divider sx={{ background: '#fff' }} />
+              <Divider sx={{ background: '#7000FF' }} />
               <div style={{ color: 'white', textWrap: 'wrap', fontSize: '0.8rem', opacity: '.8' }} dangerouslySetInnerHTML={{ __html: blogs.desciption.html }} />
             </Box>
           </Box>

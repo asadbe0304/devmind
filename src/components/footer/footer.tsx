@@ -8,7 +8,7 @@ function Copyright() {
   return (
     <Box sx={{ color: '#da0037' }}>
       {'Copyright © '}
-      <Link href="https://devminds.uz/" color="inherit" underline="none" sx={{ marginRight: '5px' }}>
+      <Link href="https://devminds.uz/" color="inherit" underline="none" sx={{ marginRight: '5px', fontSize:'14px' }}>
         One Team Group
       </Link>
       {new Date().getFullYear()}
@@ -37,12 +37,9 @@ export default function StickyFooter() {
             height={45}
             alt="Picture of the logo"
           />
-          <Box color={'#da0037'}>
-            Dev Blog
-          </Box >
         </Box>
         <Box>
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: '10px' }}>
             <Link href="https://devminds.uz" color={'#da0037'} aria-label={"social link"} underline="none">
               <MdFacebook className='icon' />
             </Link>

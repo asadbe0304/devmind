@@ -16,14 +16,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NavItems from './../../config/constants';
 import Logo from './../../assets/s.png';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window?: () => Window;
 }
+
 
 const drawerWidth = '50%';
 const navItems = NavItems
@@ -35,6 +33,7 @@ export default function Navbar(props: Props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
+  const router = useRouter()
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', background: "#2A2B33", color: "#da0037" }}>
@@ -63,7 +62,7 @@ export default function Navbar(props: Props) {
 
   return (
     <Box sx={{ display: 'flex', }} height={"10vh"}>
-      <AppBar component="nav" sx={{ background: '#2A2B33', color: "#da0037", height: '10vh', borderBottom: '1px solid #7000FF', boxShadow: '0 1px 2px #6622FF' }}>
+      <AppBar component="nav" sx={{ background: '#2A2B33', color: "#da0037", height: '10vh', borderBottom: '1px solid #7000FF', boxShadow: '0 2px 2px #6622FF' }}>
         <Toolbar sx={{ height: "10vh", background: "#2A2B33" }}>
           <IconButton
             color="inherit"
@@ -88,9 +87,9 @@ export default function Navbar(props: Props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#da0037' }}>
             {navItems.map((item) => (
-              <Link key={item.route} underline='none' sx={{ marginLeft: '5px', marginRight: '5px', color: '#da0037' }} href={item.route}>
+              <Button key={item.route} onClick={() => router.push(`${item.route}`)} sx={{ marginLeft: '5px', marginRight: '5px', color: '#da0037' }} >
                 {item.label}
-              </Link>
+              </Button>
             ))}
           </Box>
         </Toolbar>

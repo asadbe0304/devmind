@@ -2,8 +2,12 @@ import { Box, Button, Typography, Link, Divider, Avatar } from '@mui/material';
 import React, { Fragment } from 'react';
 import Image from 'next/image';
 import { SidebarProps } from './props.sidebar';
+import { useRouter } from 'next/router';
 
-const sidebar = ({ blogs, categories }: SidebarProps) => {
+export default function Sidebar({blogs, categories} : SidebarProps){
+  const router= useRouter()
+  console.log(categories);
+  
   return (
     <>
       <Box sx={{}} width={{ xs: '100%', md: '30%' }}>
@@ -12,12 +16,15 @@ const sidebar = ({ blogs, categories }: SidebarProps) => {
             <Typography variant='h5'>Category</Typography>
             <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: 'flex-start', paddingTop: "10px" }}>
               {categories.map((nav) => (
-                <Link key={nav.id} href={nav.id} sx={{ marginBottom: '0px' }}>
+                <Box key={nav.id} 
+                // href={nav.id}
+                onClick={() => router.push(`${nav.slug}`)}
+                sx={{ marginBottom: '0px' }}>
                   <Divider sx={{ marginTop: "0px", marginBottom: "0px", background: "#7000ff" }} />
                   <Button role='link' aria-label="blogs category" fullWidth sx={{ color: "#da0037", flexDirection: "column", justifyContent: 'flex-start', alignItems: "flex-start" }}>
                     {nav.slug}
                   </Button>
-                </Link>
+                </Box>
               ))
               }
             </Box>
@@ -31,7 +38,11 @@ const sidebar = ({ blogs, categories }: SidebarProps) => {
               {blogs.map((e) => {
                 return (
                   <Fragment key={e.title}>
-                    <Link href={`blog/${e.slug}`} underline='none'>
+                    <Box 
+                    // href={`blog/${e.slug}`} 
+                    onClick={() => router.push(`blog/${e.slug}`)} 
+                    // underline='none'
+                    >
                       <Box sx={{ display: "flex", gap: '20px', width: '100%', justifyContent: 'space-between' }}>
                         <Image src={e.image.url} priority={true} alt={e.excerpt} width={'100'} height={'100'} style={{ objectFit: 'cover', borderRadius: '8px' }} />
                         <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
@@ -54,7 +65,7 @@ const sidebar = ({ blogs, categories }: SidebarProps) => {
                           </Box>
                         </Box>
                       </Box>
-                    </Link>
+                    </Box>
                     <Divider sx={{ marginTop: "10px", marginBottom: "10px", background: "#7000ff" }} />
                   </Fragment>
                 )
@@ -67,4 +78,4 @@ const sidebar = ({ blogs, categories }: SidebarProps) => {
   );
 };
 
-export default sidebar;
+// export default sidebar;

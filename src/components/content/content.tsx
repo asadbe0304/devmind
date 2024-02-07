@@ -7,17 +7,17 @@ import { useRouter } from 'next/router';
 import ShareIcon from '@mui/icons-material/Share';
 import TelegramIcon from '@mui/icons-material/Telegram';
 
-const content = ({ blogs }: ContentProps) => {
 
-
-  // const router = useRouter()
-  // const [copied, setCopied] = useState(false)
-
+export default function Content({blogs}: ContentProps) {
+  const [copied, setCopied] = useState(false)
+  const router = useRouter()
   const copyToClipboard = async () => {
+console.log(blogs);
+
     try {
       const urlToCopy = window.location.href;
       await navigator.clipboard.writeText(urlToCopy);
-      // setCopied(true);
+      setCopied(true);
     } catch (err) {
       console.error('Error copying to clipboard:', err);
     }
@@ -30,17 +30,19 @@ const content = ({ blogs }: ContentProps) => {
         {
           blogs.map((e) => {
             return (
-              <Box key={e.title} sx={{ padding: '10px', margin: '0px', marginTop: '0px', borderRadius: '4px', boxShadow: '0 2px 4px #6622FF', background: "#2A2B33", border: '1px solid #7000FF', width:'100%' }}
+              <Box key={e.title} sx={{ padding: '10px', margin: '0px', marginTop: '0px', borderRadius: '4px', boxShadow: '0 2px 4px #6622FF', background: "#2A2B33", border: '1px solid #7000FF', width: '100%' }}
               >
-                <Link href={`blog/${e.slug}`} sx={{ cursor: 'pointer', textDecoration: 'none' }}
-                //  onClick={() => router.push(`/blog/${e.slug}`)}
+                <Box
+                  // href={`blog/${e.slug}`} 
+                  sx={{ cursor: 'pointer', textDecoration: 'none' }}
+                  onClick={() => router.push(`/blog/${e.slug}`)}
                 >
                   <Box position={'relative'} width={'100%'} height={{ xs: '30vh', md: '50vh' }}>
                     <Image src={e.image.url} priority={true} alt={e.excerpt} fill style={{ objectFit: 'cover', borderRadius: '10px', }} />
                   </Box>
                   <Typography variant='h4' marginTop={'30px'} color={'#ededed'}>{e.title}</Typography>
                   <Typography variant='body1' color={"#ededed"}> {e.excerpt}</Typography>
-                </Link>
+                </Box>
                 <Divider sx={{ background: "#7000FF", marginTop: '30px' }} />
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', marginTop: '20px' }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -74,4 +76,4 @@ const content = ({ blogs }: ContentProps) => {
   );
 };
 
-export default content;
+// export default content;
