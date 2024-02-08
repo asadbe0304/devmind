@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 function Copyright() {
   return (
-    <Box sx={{ color: '#da0037' }}>
+    <Box sx={{ color: '#7000FF' }}>
       {'Copyright © '}
       <Link href="https://devminds.uz/" color="inherit" underline="none" sx={{ marginRight: '5px', fontSize:'14px' }}>
         One Team Group
@@ -40,13 +40,13 @@ export default function StickyFooter() {
         </Box>
         <Box>
           <Box sx={{ display: 'flex', justifyContent: 'flex-start', gap: '10px' }}>
-            <Link href="https://devminds.uz" color={'#da0037'} aria-label={"social link"} underline="none">
+            <Link href="https://devminds.uz" color={'#7000FF'} aria-label={"social link"} underline="none">
               <MdFacebook className='icon' />
             </Link>
-            <Link href="https://devminds.uz" color={'#da0037'} aria-label={"social link"} underline="none">
+            <Link href="https://devminds.uz" color={'#7000FF'} aria-label={"social link"} underline="none">
               <MdWhatsapp className='icon' />
             </Link>
-            <Link href="https://devminds.uz" color={'#da0037'} aria-label={"social link"} underline="none">
+            <Link href="https://devminds.uz" color={'#7000FF'} aria-label={"social link"} underline="none">
               <MdMessage className='icon' />
             </Link>
           </Box>

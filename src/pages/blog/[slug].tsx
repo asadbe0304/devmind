@@ -2,16 +2,18 @@ import { GetServerSideProps } from 'next';
 import React from 'react';
 import { BlogService } from '../../services/blog.service';
 import { BlogType } from '../../interfaces/blog.interfaces';
-import { Sidebar } from '../../components';
-import { Content } from '../../components';
 import Layout from "./../../Layout/index"
 import Image from 'next/image';
-import { Avatar, Box, Divider, Typography } from '@mui/material';
+import { Avatar, Box, Button, Divider, Typography } from '@mui/material';
 import { calculatedEstimatedTime } from 'src/helpers/time.format';
+import { useRouter } from 'next/router';
 
-const DetailedBlog = ({ blogs }: DetailedBlogsPageProps) => {
-  // console.log(blogs);
+export default function DetailedBlog({ blogs }: DetailedBlogsPageProps) {
+  const router = useRouter()
 
+  const GoBack = () => {
+    router.push("/")
+  }
   return (
     <Layout>
       <Box sx={{ background: 'black', display: 'flex', gap: '20px', flexDirection: { xs: 'column', md: 'row' }, padding: '20px' }}>
@@ -35,7 +37,7 @@ const DetailedBlog = ({ blogs }: DetailedBlogsPageProps) => {
               <Avatar alt={blogs.asadbek} src={blogs.profile.url} />
               <Box>
                 <Typography variant='subtitle1' color={'#fff'}>{blogs.asadbek}</Typography>
-                <Box color={'#da0037'}>
+                <Box color={'#7000FF'}>
                   {(blogs.createdAt.slice(0, 10))} &#x2022;
                   {calculatedEstimatedTime(blogs.desciption.text)}
                   min read
@@ -47,6 +49,11 @@ const DetailedBlog = ({ blogs }: DetailedBlogsPageProps) => {
               <Typography color={'#fff'} variant='subtitle2'>{blogs.excerpt}</Typography>
               <Divider sx={{ background: '#7000FF' }} />
               <div style={{ color: 'white', textWrap: 'wrap', fontSize: '0.8rem', opacity: '.8' }} dangerouslySetInnerHTML={{ __html: blogs.desciption.html }} />
+              <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-end' }}>
+                <Button variant='contained' onClick={GoBack} sx={{ background: '#7000FF' }}>
+                  Go Back
+                </Button>
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -55,8 +62,6 @@ const DetailedBlog = ({ blogs }: DetailedBlogsPageProps) => {
     </Layout>
   );
 };
-
-export default DetailedBlog;
 
 
 export const getServerSideProps: GetServerSideProps<DetailedBlogsPageProps> = async ({

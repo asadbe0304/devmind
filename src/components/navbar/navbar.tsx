@@ -12,7 +12,7 @@ import {
   Toolbar,
   Typography, Link
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { MdMenuOpen } from 'react-icons/md';
 import NavItems from './../../config/constants';
 import Logo from './../../assets/s.png';
 import Image from 'next/image';
@@ -36,7 +36,7 @@ export default function Navbar(props: Props) {
   const router = useRouter()
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', background: "#2A2B33", color: "#da0037" }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', background: "#2A2B33", color: "#7000FF" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         <Image
           src={Logo}
@@ -48,7 +48,7 @@ export default function Navbar(props: Props) {
       </Typography>
       <List>
         {navItems.map((item) => (
-          <ListItem key={item.route} disablePadding>
+          <ListItem key={item.route}  onClick={() => router.push(`${item.route}`)} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={item.label} />
             </ListItemButton>
@@ -62,7 +62,7 @@ export default function Navbar(props: Props) {
 
   return (
     <Box sx={{ display: 'flex', }} height={"10vh"}>
-      <AppBar component="nav" sx={{ background: '#2A2B33', color: "#da0037", height: '10vh', borderBottom: '1px solid #7000FF', boxShadow: '0 2px 2px #6622FF' }}>
+      <AppBar component="nav" sx={{ background: '#2A2B33', color: "#7000FF", height: '10vh', borderBottom: '1px solid #7000FF', boxShadow: '0 1px 3px #6622FF' }}>
         <Toolbar sx={{ height: "10vh", background: "#2A2B33" }}>
           <IconButton
             color="inherit"
@@ -71,7 +71,7 @@ export default function Navbar(props: Props) {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+            <MdMenuOpen />
           </IconButton>
           <Typography
             variant="h2"
@@ -85,9 +85,9 @@ export default function Navbar(props: Props) {
               alt="Picture of the author"
             />
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#da0037' }}>
+          <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#7000FF' }}>
             {navItems.map((item) => (
-              <Button key={item.route} onClick={() => router.push(`${item.route}`)} sx={{ marginLeft: '5px', marginRight: '5px', color: '#da0037' }} >
+              <Button key={item.route} onClick={() => router.push(`${item.route}`)} sx={{ marginLeft: '5px', marginRight: '5px', color: '#7000FF' }} >
                 {item.label}
               </Button>
             ))}

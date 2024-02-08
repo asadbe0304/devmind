@@ -44,14 +44,14 @@ const hero = ({ blogs }: HeroProps) => {
                       <Typography variant='h5' sx={{ fontSize: { xs: '25px', md: '30px', color: '#999' } }}>
                         {item.excerpt}
                       </Typography>
-                      <Box sx={{ display: 'flex', alignItems:'flex-start', marginTop: '20px', gap: '10px' }}>
+                      <Box sx={{ display: 'flex', alignItems: 'flex-start', marginTop: '20px', gap: '10px' }}>
                         <Avatar alt='Asadbek' src={item.profile.url} />
                         <Box>
                           <Typography variant='h5'>{item.asadbek}</Typography>
-                          <Box>
+                          <Box sx={{ fontSize: '14px' }}>
                             {item.createdAt.slice(0, 10)} ,  {calculatedEstimatedTime(item.desciption.text)} min read
                           </Box>
-                          <Button variant={"contained"} sx={{ width: '100%', marginTop:'10px' }} aria-label='read more button'>
+                          <Button variant={"contained"} sx={{ width: '100%', marginTop: '10px', background: '#7000FF' }} aria-label='read more button'>
                             Read more
                           </Button>
                         </Box>

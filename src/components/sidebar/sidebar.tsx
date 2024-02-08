@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 
 export default function Sidebar({blogs, categories} : SidebarProps){
   const router= useRouter()
-  console.log(categories);
   
   return (
     <>
@@ -21,7 +20,7 @@ export default function Sidebar({blogs, categories} : SidebarProps){
                 onClick={() => router.push(`${nav.slug}`)}
                 sx={{ marginBottom: '0px' }}>
                   <Divider sx={{ marginTop: "0px", marginBottom: "0px", background: "#7000ff" }} />
-                  <Button role='link' aria-label="blogs category" fullWidth sx={{ color: "#da0037", flexDirection: "column", justifyContent: 'flex-start', alignItems: "flex-start" }}>
+                  <Button role='link' aria-label="blogs category" fullWidth sx={{ color: "#7000FF", flexDirection: "column", justifyContent: 'flex-start', alignItems: "flex-start" }}>
                     {nav.slug}
                   </Button>
                 </Box>
@@ -56,8 +55,8 @@ export default function Sidebar({blogs, categories} : SidebarProps){
                             <Avatar alt='Asadbek' src={e.profile.url} />
                             <Box>
                               <Typography variant='subtitle1' >{e.asadbek}</Typography>
-                              <Box sx={{ color: "#ed0037" }}>
-                                <Typography variant='subtitle2'>
+                              <Box sx={{ color: "#7000FF" }}>
+                                <Typography variant='subtitle2' sx={{fontSize:'14px'}}>
                                   {e.createdAt.slice(0, 10)}
                                 </Typography>
                               </Box>

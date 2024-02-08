@@ -1,18 +1,19 @@
-import { Avatar, Box, Divider, Typography, Link, Tooltip } from '@mui/material';
+import { Avatar, Box, Divider, Typography, Link, Tooltip, Button } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { ContentProps } from './props.content';
 import { calculatedEstimatedTime } from '../../helpers/time.format';
 import { useRouter } from 'next/router';
-import ShareIcon from '@mui/icons-material/Share';
-import TelegramIcon from '@mui/icons-material/Telegram';
+import { MdShare, MdLink } from 'react-icons/md';
+// import ShareIcon from '@mui/icons-material/Share';
+// import TelegramIcon from '@mui/icons-material/Telegram';
 
 
-export default function Content({blogs}: ContentProps) {
+export default function Content({ blogs }: ContentProps) {
   const [copied, setCopied] = useState(false)
   const router = useRouter()
   const copyToClipboard = async () => {
-console.log(blogs);
+    console.log(blogs);
 
     try {
       const urlToCopy = window.location.href;
@@ -51,19 +52,21 @@ console.log(blogs);
                       <Typography variant='subtitle1' color={'#ededed'}>
                         {e.asadbek}
                       </Typography>
-                      <Box color={'#da0037'}>
+                      <Box color={'#7000FF'} sx={{fontSize:'14px'}}>
                         {e.createdAt.slice(0, 10)} {calculatedEstimatedTime(e.desciption.text)} min read
                       </Box>
                     </Box>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <Link href={'https://t.me/Aa_Asadbek'} sx={{ padding: '0', margin: '0', width: '24px', height: '24px' }}>
-                      <Tooltip title={'Open Telegram'}>
-                        <TelegramIcon sx={{ color: '#da0037', cursor: 'pointer', width: '24px', height: '24px' }} />
-                      </Tooltip>
-                    </Link>
-                    <Tooltip title={`copy url`}>
-                      <ShareIcon onClick={copyToClipboard} sx={{ color: '#da0037', cursor: 'pointer', width: '24px', height: '24px' }} />
+                    <Tooltip title={'Open Telegram'}>
+                      <Button variant='contained' sx={{ background: '#7000FF' }} onClick={() => { router.push('https://t.me/Aa_Asadbek') }}>
+                        <MdShare style={{ cursor: 'pointer', width: '24px', height: '24px' }} />
+                      </Button>
+                    </Tooltip>
+                    <Tooltip title={`${copied ? "Copied" : 'Copy Url'}`}>
+                      <Button variant={'contained'} sx={{background:'#7000FF'}}>
+                        <MdLink onClick={copyToClipboard} style={{ cursor: 'pointer', width: '24px', height: '24px' }} />
+                      </Button>
                     </Tooltip>
                   </Box>
                 </Box>
