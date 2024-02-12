@@ -87,7 +87,7 @@ export default function Navbar(props: Props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' }, color: '#7000FF' }}>
             {navItems.map((item) => (
-              <Button key={item.route} onClick={() => router.push(`${item.route}`)} sx={{ marginLeft: '5px', marginRight: '5px', color: '#7000FF' }} >
+              <Button key={item.label} onClick={() => router.push(`${item.route}`)} sx={{ marginLeft: '5px', marginRight: '5px', color: '#7000FF' }} >
                 {item.label}
               </Button>
             ))}

@@ -31,7 +31,7 @@ export default function Content({ blogs }: ContentProps) {
         {
           blogs.map((e) => {
             return (
-              <Box key={e.title} sx={{ padding: '10px', margin: '0px', marginTop: '0px', borderRadius: '4px', boxShadow: '0 2px 4px #6622FF', background: "#2A2B33", border: '1px solid #7000FF', width: '100%' }}
+              <Box key={e.title} sx={{ padding: '10px', margin: '0px', marginTop: '0px', borderRadius: '4px', background: "#2A2B33", border: '1px solid #7000FF', width: '100%' }}
               >
                 <Box
                   // href={`blog/${e.slug}`} 

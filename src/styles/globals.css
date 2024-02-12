@@ -1,5 +1,5 @@
 body {
-  background: #15151a !important;
+  background: #151515 !important;
 }
 
 .icon {
@@ -8,5 +8,6 @@ body {
 }
 
 #nprogress .bar {
+  height: 4px!important;
   z-index: 1110 !important;
 }

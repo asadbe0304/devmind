@@ -4,21 +4,21 @@ import Image from 'next/image';
 import { SidebarProps } from './props.sidebar';
 import { useRouter } from 'next/router';
 
-export default function Sidebar({blogs, categories} : SidebarProps){
-  const router= useRouter()
-  
+export default function Sidebar({ blogs, categories }: SidebarProps) {
+  const router = useRouter()
+
   return (
     <>
       <Box sx={{}} width={{ xs: '100%', md: '30%' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column-reverse', transition: "all 0.3s ease" }} style={{ position: 'sticky', top: '100px' }}>
-          <Box sx={{ padding: '10px', background: '#2A2B33', borderRadius: '8px', color: '#ededed', border: '1px solid #7000FF', boxShadow: '0 2px 4px #6622FF' }}>
+          <Box sx={{ padding: '10px', background: '#2A2B33', borderRadius: '8px', color: '#ededed', border: '1px solid #7000FF' }}>
             <Typography variant='h5'>Category</Typography>
             <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: 'flex-start', paddingTop: "10px" }}>
               {categories.map((nav) => (
-                <Box key={nav.id} 
-                // href={nav.id}
-                onClick={() => router.push(`${nav.slug}`)}
-                sx={{ marginBottom: '0px' }}>
+                <Box key={nav.id}
+                  // href={nav.id}
+                  onClick={() => router.push(`${nav.slug}`)}
+                  sx={{ marginBottom: '0px' }}>
                   <Divider sx={{ marginTop: "0px", marginBottom: "0px", background: "#7000ff" }} />
                   <Button role='link' aria-label="blogs category" fullWidth sx={{ color: "#7000FF", flexDirection: "column", justifyContent: 'flex-start', alignItems: "flex-start" }}>
                     {nav.slug}
@@ -29,7 +29,7 @@ export default function Sidebar({blogs, categories} : SidebarProps){
             </Box>
           </Box>
           {/* latest blog box */}
-          <Box sx={{ width: "100%", borderRadius: '8px', marginBottom: '20px', padding: "20px", background: '#2A2B33', border: '1px solid #7000FF', boxShadow: '0 2px 4px #6622FF' }}>
+          <Box sx={{ width: "100%", borderRadius: '8px', marginBottom: '20px', padding: "20px", background: '#2A2B33', border: '1px solid #7000FF' }}>
             <Typography variant='h5' color={"#ededed"}>
               Latest blog
             </Typography>
@@ -37,9 +37,9 @@ export default function Sidebar({blogs, categories} : SidebarProps){
               {blogs.map((e) => {
                 return (
                   <Fragment key={e.title}>
-                    <Box 
-                    // href={`blog/${e.slug}`} 
-                    onClick={() => router.push(`blog/${e.slug}`)} 
+                    <Box
+                      // href={`blog/${e.slug}`} 
+                      onClick={() => router.push(`blog/${e.slug}`)}
                     // underline='none'
                     >
                       <Box sx={{ display: "flex", gap: '20px', width: '100%', justifyContent: 'space-between' }}>
@@ -56,7 +56,7 @@ export default function Sidebar({blogs, categories} : SidebarProps){
                             <Box>
                               <Typography variant='subtitle1' >{e.asadbek}</Typography>
                               <Box sx={{ color: "#7000FF" }}>
-                                <Typography variant='subtitle2' sx={{fontSize:'14px'}}>
+                                <Typography variant='subtitle2' sx={{ fontSize: '14px' }}>
                                   {e.createdAt.slice(0, 10)}
                                 </Typography>
                               </Box>
